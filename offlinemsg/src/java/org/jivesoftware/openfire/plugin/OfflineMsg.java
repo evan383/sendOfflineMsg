@@ -109,8 +109,9 @@ public class OfflineMsg implements PacketInterceptor, Plugin {
             String username = recipient.getNode();
             
             // if broadcast message or user is not exist
-            if (username == null || !UserManager.getInstance().isRegisteredUser(recipient)) {
-
+          //  if (username == null || !UserManager.getInstance().isRegisteredUser(recipient)) {
+          // update bug with version 3.10.3
+  	      if (username == null || !UserManager.getInstance().isRegisteredUser(username)) { 
                 return;
 
             } else if (!XMPPServer.getInstance().getServerInfo().getXMPPDomain().equals(recipient.getDomain())) {
